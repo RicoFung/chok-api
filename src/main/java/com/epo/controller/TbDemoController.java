@@ -90,15 +90,15 @@ public class TbDemoController extends BaseRestController<TbDemo>
 	}
 
 	@RequestMapping(value = "/get", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public RestResult get(@RequestBody Long tcRowid) 
+	public RestResult get(@RequestBody JSONObject jsonParams) 
 	{
 		if (log.isDebugEnabled())
 		{
-			log.debug("==> 请求参数：{}", tcRowid);
+			log.debug("==> 请求参数：{}", jsonParams);
 		}
 		try
 		{
-			restResult.put("po", service.get(tcRowid));
+			restResult.put("po", service.get(jsonParams.getLong("tcRowid")));
 		}
 		catch(Exception e)
 		{
