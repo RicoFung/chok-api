@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.common.Dict">
+
+	<resultMap type="com.common.Dict" id="result1">
+        <result property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+	</resultMap>
+
+	<select id="p_query_bi_imp_type"  statementType="CALLABLE" parameterType="map">
+		call
+		p_query_bi_imp_type
+		(
+		#{v_in_account,mode=IN,jdbcType=VARCHAR,javaType=String},
+		#{v_out_success,mode=OUT,jdbcType=VARCHAR,javaType=String},
+		#{v_out_msg,mode=OUT,jdbcType=VARCHAR,javaType=String},
+		#{v_out_cursor,mode=OUT,jdbcType=CURSOR,resultMap=result1}
+		)
+	</select>
+</mapper>  
