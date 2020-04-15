@@ -128,7 +128,7 @@
 				</includes>
 			</resource>
 		</resources>
-		<finalName>chok-api</finalName>
+		<finalName>museum-api</finalName>
 	</build>
 
 </project>
